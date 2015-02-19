@@ -7,7 +7,7 @@
  */
 package com.bms.service.vo;
 
-
+//TODO - This is still kept in the package for BMS for reference functionality
 public class Company {
 	
 	private String companyName;
