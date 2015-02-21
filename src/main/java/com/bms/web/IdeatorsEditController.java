@@ -1,5 +1,5 @@
 /**
- * Name			 : ideatorsController.java
+ * Name			 : IdeatorsEditController.java
  * Description	 : 
  * Creation Date : Dec 24, 2014
  * Version		 : 0.1 - Initial Draft Version

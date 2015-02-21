@@ -76,11 +76,11 @@ public final class vmenu_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\t<li class=\"nav-header\"><a href=\"");
       if (_jspx_meth_c_url_5(_jspx_page_context))
         return;
-      out.write("\">Ideator Profile</a></li>\r\n");
+      out.write("\">Creator Profile</a></li>\r\n");
       out.write("\t<li class=\"nav-header\"><a href=\"");
       if (_jspx_meth_c_url_6(_jspx_page_context))
         return;
-      out.write("\">Creator Profile</a></li>\r\n");
+      out.write("\">Ideator Profile</a></li>\r\n");
       out.write("\t<li class=\"nav-header\"><a href=\"");
       if (_jspx_meth_c_url_7(_jspx_page_context))
         return;
@@ -197,7 +197,7 @@ public final class vmenu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_5 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_url_5.setPageContext(_jspx_page_context);
     _jspx_th_c_url_5.setParent(null);
-    _jspx_th_c_url_5.setValue("/displayIdeator");
+    _jspx_th_c_url_5.setValue("/displayCreator");
     int _jspx_eval_c_url_5 = _jspx_th_c_url_5.doStartTag();
     if (_jspx_th_c_url_5.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_5);
@@ -215,7 +215,7 @@ public final class vmenu_jsp extends org.apache.jasper.runtime.HttpJspBase
     org.apache.taglibs.standard.tag.rt.core.UrlTag _jspx_th_c_url_6 = (org.apache.taglibs.standard.tag.rt.core.UrlTag) _jspx_tagPool_c_url_value_nobody.get(org.apache.taglibs.standard.tag.rt.core.UrlTag.class);
     _jspx_th_c_url_6.setPageContext(_jspx_page_context);
     _jspx_th_c_url_6.setParent(null);
-    _jspx_th_c_url_6.setValue("/displayCreator");
+    _jspx_th_c_url_6.setValue("/displayIdeator");
     int _jspx_eval_c_url_6 = _jspx_th_c_url_6.doStartTag();
     if (_jspx_th_c_url_6.doEndTag() == javax.servlet.jsp.tagext.Tag.SKIP_PAGE) {
       _jspx_tagPool_c_url_value_nobody.reuse(_jspx_th_c_url_6);

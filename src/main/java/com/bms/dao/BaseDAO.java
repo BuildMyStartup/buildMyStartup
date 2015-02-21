@@ -8,9 +8,8 @@
 package com.bms.dao;
 
 import static com.bms.common.CommonConstants.DATA_STORE_PATH;
-import static com.bms.common.CommonConstants.SPREADSHEET_CREATOR;
-import static com.bms.common.CommonConstants.SPREADSHEET_IDEATOR;
-import static com.bms.common.CommonConstants.SPREADSHEET_PROJECT;
+import static com.bms.common.CommonConstants.SPREADSHEET_CREATORS;
+import static com.bms.common.CommonConstants.SPREADSHEET_IDEATORS;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,17 +18,13 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-/**
- * Till the backend DB integration is not complete this is being used as the data store in a relational manner.
- * Display Profile Pages of the Creators & Ideators will show data which is in these sheets.
- */
+//TODO - This is still kept in the package for BMS for reference functionality
 public class BaseDAO {
 
 	private File bmsDataSource;
 	private Workbook dbWorkbook; //Workbook.getWorkbook(new File(excelWbName)); 
-	private Sheet ideatorTblSheet; //dbWorkbook.getSheet(excelSpreadsheet);
-	private Sheet creatorTblSheet;
-	private Sheet projectTblSheet;
+	private Sheet ideatorsTblSheet; //dbWorkbook.getSheet(excelSpreadsheet);
+	private Sheet creatorsTblSheet;
 	
 	public BaseDAO() {
 		bmsDataSource = new File(DATA_STORE_PATH);
@@ -37,24 +32,20 @@ public class BaseDAO {
 			dbWorkbook = Workbook.getWorkbook(bmsDataSource);
 		} catch (BiffException | IOException e) {
 			// TODO implement logging framework
-			System.out.println("Please Map the path for Data Store Excel correctly in Common Constants: Variable DATA_STORE_PATH");
 			e.printStackTrace();
 		}
-		ideatorTblSheet = dbWorkbook.getSheet(SPREADSHEET_IDEATOR);
-		creatorTblSheet = dbWorkbook.getSheet(SPREADSHEET_CREATOR);
-		projectTblSheet = dbWorkbook.getSheet(SPREADSHEET_PROJECT);
+		ideatorsTblSheet = dbWorkbook.getSheet(SPREADSHEET_IDEATORS);
+		creatorsTblSheet = dbWorkbook.getSheet(SPREADSHEET_CREATORS);
 		
 		}
 	
 //	public static void main(String args[]) throws BiffException, IOException, URISyntaxException{
 //		BaseDAO baseDAO = new BaseDAO();
-//		System.out.println(baseDAO.getBmsDataSource().getName());
+//		System.out.println(baseDAO.getIdeatorsTblSheet().getName());
 //		System.out.println(baseDAO.getDbWorkbook().getVersion());
-//		System.out.println(baseDAO.getIdeatorTblSheet().getRows());
-//		System.out.println(baseDAO.getCreatorTblSheet().getColumns());
-//		System.out.println(baseDAO.getProjectTblSheet().getSettings());
+//		System.out.println(baseDAO.getCreatorsTblSheet().getRows());
 //	}
-	
+
 	public File getBmsDataSource() {
 		return bmsDataSource;
 	}
@@ -71,28 +62,20 @@ public class BaseDAO {
 		this.dbWorkbook = dbWorkbook;
 	}
 
-	public Sheet getIdeatorTblSheet() {
-		return ideatorTblSheet;
+	public Sheet getIdeatorsTblSheet() {
+		return ideatorsTblSheet;
 	}
 
-	public void setIdeatorTblSheet(Sheet ideatorTblSheet) {
-		this.ideatorTblSheet = ideatorTblSheet;
+	public void setIdeatorsTblSheet(Sheet ideatorsTblSheet) {
+		this.ideatorsTblSheet = ideatorsTblSheet;
 	}
 
-	public Sheet getCreatorTblSheet() {
-		return creatorTblSheet;
+	public Sheet getCreatorsTblSheet() {
+		return creatorsTblSheet;
 	}
 
-	public void setCreatorTblSheet(Sheet creatorTblSheet) {
-		this.creatorTblSheet = creatorTblSheet;
+	public void setCreatorsTblSheet(Sheet creatorsTblSheet) {
+		this.creatorsTblSheet = creatorsTblSheet;
 	}
-
-	public Sheet getProjectTblSheet() {
-		return projectTblSheet;
-	}
-
-	public void setProjectTblSheet(Sheet projectTblSheet) {
-		this.projectTblSheet = projectTblSheet;
-	}
-
+	
 }

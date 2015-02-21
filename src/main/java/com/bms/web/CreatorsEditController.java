@@ -1,5 +1,5 @@
 /**
- * Name			 : CreatorsController.java
+ * Name			 : CreatorsEditController.java
  * Description	 : 
  * Creation Date : Dec 24, 2014
  * Version		 : 0.1 - Initial Draft Version
