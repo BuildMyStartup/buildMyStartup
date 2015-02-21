@@ -3,24 +3,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
 
-	<display-name>Invoice Management Service</display-name>
+	<display-name>BuildMyStartup</display-name>
 
 	<!-- Processes application requests -->
 	<servlet>
-		<servlet-name>invoice</servlet-name>
+		<servlet-name>bms</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 		
 	<servlet-mapping>
-		<servlet-name>invoice</servlet-name>
+		<servlet-name>bms</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 	
 		<!-- The definition of the Root Spring Container shared by all Servlets and Filters -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
-		<param-value>/WEB-INF/invoice-service.xml</param-value>
+		<param-value>/WEB-INF/bms-service.xml</param-value>
 	</context-param>
 	
 	<!-- Creates the Spring Container shared by all Servlets and Filters -->

@@ -8,56 +8,59 @@
 package com.bms.dao;
 
 import static com.bms.common.CommonConstants.DATA_STORE_PATH;
-import static com.bms.common.CommonConstants.SPREADSHEET_CUSTOMER;
-import static com.bms.common.CommonConstants.SPREADSHEET_INVOICE;
-import static com.bms.common.CommonConstants.SPREADSHEET_ITEM;
+import static com.bms.common.CommonConstants.SPREADSHEET_CREATOR;
+import static com.bms.common.CommonConstants.SPREADSHEET_IDEATOR;
+import static com.bms.common.CommonConstants.SPREADSHEET_PROJECT;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 
 import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
-//TODO - This is still kept in the package for BMS for reference functionality
+/**
+ * Till the backend DB integration is not complete this is being used as the data store in a relational manner.
+ * Display Profile Pages of the Creators & Ideators will show data which is in these sheets.
+ */
 public class BaseDAO {
 
-	private File invoiceDataSource;
+	private File bmsDataSource;
 	private Workbook dbWorkbook; //Workbook.getWorkbook(new File(excelWbName)); 
-	private Sheet invoiceTblSheet; //dbWorkbook.getSheet(excelSpreadsheet);
-	private Sheet customerTblSheet;
-	private Sheet itemTblSheet;
+	private Sheet ideatorTblSheet; //dbWorkbook.getSheet(excelSpreadsheet);
+	private Sheet creatorTblSheet;
+	private Sheet projectTblSheet;
 	
 	public BaseDAO() {
-		invoiceDataSource = new File(DATA_STORE_PATH);
+		bmsDataSource = new File(DATA_STORE_PATH);
 		try {
-			dbWorkbook = Workbook.getWorkbook(invoiceDataSource);
+			dbWorkbook = Workbook.getWorkbook(bmsDataSource);
 		} catch (BiffException | IOException e) {
 			// TODO implement logging framework
+			System.out.println("Please Map the path for Data Store Excel correctly in Common Constants: Variable DATA_STORE_PATH");
 			e.printStackTrace();
 		}
-		invoiceTblSheet = dbWorkbook.getSheet(SPREADSHEET_INVOICE);
-		customerTblSheet = dbWorkbook.getSheet(SPREADSHEET_CUSTOMER);
-		itemTblSheet = dbWorkbook.getSheet(SPREADSHEET_ITEM);
+		ideatorTblSheet = dbWorkbook.getSheet(SPREADSHEET_IDEATOR);
+		creatorTblSheet = dbWorkbook.getSheet(SPREADSHEET_CREATOR);
+		projectTblSheet = dbWorkbook.getSheet(SPREADSHEET_PROJECT);
 		
 		}
 	
-	public static void main(String args[]) throws BiffException, IOException, URISyntaxException{
+//	public static void main(String args[]) throws BiffException, IOException, URISyntaxException{
 //		BaseDAO baseDAO = new BaseDAO();
-//		System.out.println(baseDAO.getInvoiceDataSource().getName());
+//		System.out.println(baseDAO.getBmsDataSource().getName());
 //		System.out.println(baseDAO.getDbWorkbook().getVersion());
-//		System.out.println(baseDAO.getInvoiceTblSheet().getRows());
-//		System.out.println(baseDAO.getCustomerTblSheet().getColumns());
-//		System.out.println(baseDAO.getItemTblSheet().getSettings());
-	}
+//		System.out.println(baseDAO.getIdeatorTblSheet().getRows());
+//		System.out.println(baseDAO.getCreatorTblSheet().getColumns());
+//		System.out.println(baseDAO.getProjectTblSheet().getSettings());
+//	}
 	
-	public File getInvoiceDataSource() {
-		return invoiceDataSource;
+	public File getBmsDataSource() {
+		return bmsDataSource;
 	}
 
-	public void setInvoiceDataSource(File invoiceDataSource) {
-		this.invoiceDataSource = invoiceDataSource;
+	public void setBmsDataSource(File bmsDataSource) {
+		this.bmsDataSource = bmsDataSource;
 	}
 
 	public Workbook getDbWorkbook() {
@@ -68,27 +71,28 @@ public class BaseDAO {
 		this.dbWorkbook = dbWorkbook;
 	}
 
-	public Sheet getInvoiceTblSheet() {
-		return invoiceTblSheet;
+	public Sheet getIdeatorTblSheet() {
+		return ideatorTblSheet;
 	}
 
-	public void setInvoiceTblSheet(Sheet invoiceTblSheet) {
-		this.invoiceTblSheet = invoiceTblSheet;
+	public void setIdeatorTblSheet(Sheet ideatorTblSheet) {
+		this.ideatorTblSheet = ideatorTblSheet;
 	}
 
-	public Sheet getCustomerTblSheet() {
-		return customerTblSheet;
+	public Sheet getCreatorTblSheet() {
+		return creatorTblSheet;
 	}
 
-	public void setCustomerTblSheet(Sheet customerTblSheet) {
-		this.customerTblSheet = customerTblSheet;
+	public void setCreatorTblSheet(Sheet creatorTblSheet) {
+		this.creatorTblSheet = creatorTblSheet;
 	}
 
-	public Sheet getItemTblSheet() {
-		return itemTblSheet;
+	public Sheet getProjectTblSheet() {
+		return projectTblSheet;
 	}
 
-	public void setItemTblSheet(Sheet itemTblSheet) {
-		this.itemTblSheet = itemTblSheet;
+	public void setProjectTblSheet(Sheet projectTblSheet) {
+		this.projectTblSheet = projectTblSheet;
 	}
+
 }

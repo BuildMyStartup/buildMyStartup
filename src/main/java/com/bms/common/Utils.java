@@ -20,7 +20,12 @@ public final class Utils {
 	 */
 	public static int lookupInd(Map<String, Integer> sheetTbl, String fieldName) {
 		int lookupInd=-1;
-		lookupInd=sheetTbl.get(fieldName).intValue();
+		try {
+			lookupInd=sheetTbl.get(fieldName).intValue();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return lookupInd;
 	}
 

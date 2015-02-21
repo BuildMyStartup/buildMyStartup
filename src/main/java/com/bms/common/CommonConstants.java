@@ -44,94 +44,91 @@ public final class CommonConstants {
 	/**
 	 * Datasource constants
 	 */
-	public static final String SPREADSHEET_ITEM = "Item";
-	public static final String SPREADSHEET_CUSTOMER = "Customer";
-	public static final String SPREADSHEET_INVOICE = "Invoice";
-	public static final String DATA_STORE_PATH = "C:/MyWS/buildmystartup/src/main/resources/InvoicingDataStore.xls";//"src/main/resources/InvoicingDataStore.xls";
+	public static final String SPREADSHEET_PROJECT = "Project";
+	public static final String SPREADSHEET_CREATOR = "Creator";
+	public static final String SPREADSHEET_IDEATOR = "Ideator";
+	public static final String DATA_STORE_PATH = "C:\\work\\git\\BuildMyStartup\\buildMyStartup\\src\\main\\resources\\BMSDataStore.xls";
 	
-	public static final String ATTACHMENT = "attachment";
-	public static final String MESSAGE = "message";
-	public static final String DISCOUNT = "discount";
-	public static final String INVOICE_FEE = "invoiceFee";
-	public static final String TOTAL_VAT = "totalVat";
-	public static final String TOTAL_AMOUNT = "totalAmount";
-	public static final String ITEM_LIST = "itemList";
-	public static final String CUSTOMER = "customer";
-	public static final String INVOICE_NUMBER = "invoiceNumber";
-	public static final String SUM = "sum";
-	public static final String VAT = "vat";
-	public static final String NET_PRICE = "netPrice";
-	public static final String AMOUNT = "amount";
-	public static final String ITEM_UNIT = "itemUnit";
-	public static final String ITEM_DESCRIPTION = "itemDescription";
-	public static final String ITEM_ID = "itemId";
-	public static final String ITEM_NAME = "itemName";
-	public static final String ITEM_NUMBER = "itemNumber";
-	public static final String CUSTOMER_ADRESS = "customerAdress";
-	public static final String RECIPIENT_NAME = "recipientName";
-	public static final String CUSTOMER_PHONE_NUMBER = "customerPhoneNumber";
-	public static final String CUSTOMER_EMAIL = "customerEmail";
-	public static final String CUSTOMER_VAT_NUMBER = "customerVATNumber";
-	public static final String NATIONAL_INSURANCE_NUMBER = "nationalInsuranceNumber";
-	public static final String NATIONALITY = "nationality";
-	public static final String CUSTOMER_TYPE = "customerType";
-	public static final String S_NO = "s.no.";
-	public static final String CUSTOMER_NAME = "customerName";
-	public static final String CUSTOMER_ID = "customerId";
-	public static final String SELECT_CUSTOMER = " - Select Customer - ";
-	public static final String SELECT_ITEMS = " - Select Item - ";
+	public static final String SNO = "s.No.";
+	public static final String USERNAME = "userName";
+	public static final String PASSWORD = "password";
+	public static final String USERID = "userId";
+	public static final String ACCOUNTSTATUS = "accountStatus";
+	public static final String CREATIONDATE = "creationDate";
+	public static final String MODIFICATIONDATE = "modificationDate";
+	public static final String FIRSTNAME = "firstName";
+	public static final String MIDDLENAME = "middleName";
+	public static final String LASTNAME = "lastName";
+	public static final String SEX = "sex";
+	public static final String DATEOFBIRTH = "dateOfBirth";
+	public static final String ADDRESS = "address";
+	public static final String PHONENUMBER = "phoneNumber";
+	
+	public static final String COMPANYNAME = "companyName";
+	public static final String WEBSITE = "website";
+	
+	public static final String SKILLS = "skills";
+	public static final String EXPERIENCE = "experience";
+	public static final String RATE = "rate";
+	public static final String AVAILABILITYSTATUS = "availabilityStatus";
+	public static final String AVAILABILITYDATE = "availabilityDate";
 
+	public static final String PROJECTS = "projects";
 	
-	public static Map<String, Integer> invoiceFields = new HashMap<String, Integer>();
-	public static Map<String, Integer> customerFields = new HashMap<String, Integer>();
-	public static Map<String, Integer> itemFields = new HashMap<String, Integer>();
+	
+	public static Map<String, Integer> ideatorFields = new HashMap<String, Integer>();
+	public static Map<String, Integer> creatorFields = new HashMap<String, Integer>();
 	
 	static{
 		Map<String, Integer> tmpMap1 = new HashMap<String, Integer>();
 		
-		tmpMap1.put(S_NO, new Integer(0));
-		tmpMap1.put(INVOICE_NUMBER, new Integer(1));
-		tmpMap1.put(CUSTOMER, new Integer(2));
-		tmpMap1.put(ITEM_LIST, new Integer(3));
-		tmpMap1.put(TOTAL_AMOUNT, new Integer(4));
-		tmpMap1.put(TOTAL_VAT, new Integer(5));
-		tmpMap1.put(INVOICE_FEE, new Integer(6));
-		tmpMap1.put(DISCOUNT, new Integer(7));
-		tmpMap1.put(MESSAGE, new Integer(8));
-		tmpMap1.put(ATTACHMENT, new Integer(9));
-		
-		invoiceFields = Collections.unmodifiableMap(tmpMap1);
+		tmpMap1.put(SNO, new Integer(0));
+		tmpMap1.put(USERNAME, new Integer(1));
+		tmpMap1.put(PASSWORD, new Integer(2));
+		tmpMap1.put(USERID, new Integer(3));
+		tmpMap1.put(ACCOUNTSTATUS, new Integer(4));
+		tmpMap1.put(CREATIONDATE, new Integer(5));
+		tmpMap1.put(MODIFICATIONDATE, new Integer(6));
+		tmpMap1.put(FIRSTNAME, new Integer(7));
+		tmpMap1.put(MIDDLENAME, new Integer(8));
+		tmpMap1.put(LASTNAME, new Integer(9));
+		tmpMap1.put(SEX, new Integer(10));
+		tmpMap1.put(DATEOFBIRTH, new Integer(11));
+		tmpMap1.put(ADDRESS, new Integer(12));
+		tmpMap1.put(PHONENUMBER, new Integer(13));
+		tmpMap1.put(COMPANYNAME, new Integer(14));
+		tmpMap1.put(WEBSITE, new Integer(15));
+		tmpMap1.put(PROJECTS, new Integer(16));
+			
+		ideatorFields = Collections.unmodifiableMap(tmpMap1);
 		
 		Map<String, Integer> tmpMap2 = new HashMap<String, Integer>();
 		
-		tmpMap2.put(S_NO, new Integer(0));
-		tmpMap2.put(CUSTOMER_ID, new Integer(1));
-		tmpMap2.put(CUSTOMER_NAME, new Integer(2));
-		tmpMap2.put(CUSTOMER_TYPE, new Integer(3));
-		tmpMap2.put(NATIONALITY, new Integer(4));
-		tmpMap2.put(NATIONAL_INSURANCE_NUMBER, new Integer(5));
-		tmpMap2.put(CUSTOMER_VAT_NUMBER, new Integer(6));
-		tmpMap2.put(CUSTOMER_EMAIL, new Integer(7));
-		tmpMap2.put(CUSTOMER_PHONE_NUMBER, new Integer(8));
-		tmpMap2.put(RECIPIENT_NAME, new Integer(9));
-		tmpMap2.put(CUSTOMER_ADRESS, new Integer(10));
+		tmpMap2.put(SNO, new Integer(0));
+		tmpMap2.put(USERNAME, new Integer(1));
+		tmpMap2.put(PASSWORD, new Integer(2));
+		tmpMap2.put(USERID, new Integer(3));
+		tmpMap2.put(ACCOUNTSTATUS, new Integer(4));
+		tmpMap2.put(CREATIONDATE, new Integer(5));
+		tmpMap2.put(MODIFICATIONDATE, new Integer(6));
+		tmpMap2.put(FIRSTNAME, new Integer(7));
+		tmpMap2.put(MIDDLENAME, new Integer(8));
+		tmpMap2.put(LASTNAME, new Integer(9));
+		tmpMap2.put(SEX, new Integer(10));
+		tmpMap2.put(DATEOFBIRTH, new Integer(11));
+		tmpMap2.put(ADDRESS, new Integer(12));
+		tmpMap2.put(PHONENUMBER, new Integer(13));
+		tmpMap2.put(COMPANYNAME, new Integer(14));
+		tmpMap2.put(WEBSITE, new Integer(15));
+		tmpMap2.put(SKILLS, new Integer(16));
+		tmpMap2.put(EXPERIENCE, new Integer(17));
+		tmpMap2.put(RATE, new Integer(18));
+		tmpMap2.put(AVAILABILITYSTATUS, new Integer(19));
+		tmpMap2.put(AVAILABILITYDATE, new Integer(20));
 		
-		customerFields = Collections.unmodifiableMap(tmpMap2);
 		
-		Map<String, Integer> tmpMap3 = new HashMap<String, Integer>();
+		creatorFields = Collections.unmodifiableMap(tmpMap2);
 		
-		tmpMap3.put(S_NO, new Integer(0));
-		tmpMap3.put(ITEM_NUMBER, new Integer(1));
-		tmpMap3.put(ITEM_NAME, new Integer(2));
-		tmpMap3.put(ITEM_DESCRIPTION, new Integer(3));
-		tmpMap3.put(ITEM_UNIT, new Integer(4));
-		tmpMap3.put(AMOUNT, new Integer(5));
-		tmpMap3.put(NET_PRICE, new Integer(6));
-		tmpMap3.put(VAT, new Integer(7));
-		tmpMap3.put(SUM, new Integer(8));
-		
-		itemFields = Collections.unmodifiableMap(tmpMap3);
-
 	}
 	
 }

@@ -10,7 +10,7 @@ package com.bms.service.vo;
 public class Experience {
 
 	private int years;
-	private String months;
+	private int months;
 	
 	public int getYears() {
 		return years;
@@ -18,10 +18,10 @@ public class Experience {
 	public void setYears(int years) {
 		this.years = years;
 	}
-	public String getMonths() {
+	public int getMonths() {
 		return months;
 	}
-	public void setMonths(String months) {
+	public void setMonths(int months) {
 		this.months = months;
 	}
 	
