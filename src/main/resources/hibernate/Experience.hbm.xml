@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.bms.service.vo.Experience" table="Experience">
+        <id name="userId" type="java.lang.Long">
+            <column name="USERID"/>
+            <generator class="foreign">
+                <param name="property">userProfile</param>
+            </generator>
+        </id>
+        <one-to-one name="userProfile" class="com.bms.service.vo.UserProfile" constrained="true"></one-to-one>
+        
+        <property name="years" column="YEARS" type="java.lang.Integer"></property>
+        <property name="months" column="MONTHS" type="java.lang.Integer"></property>
+        
+    </class>
+</hibernate-mapping>

@@ -38,6 +38,8 @@ import com.bms.common.CommonConstants.Currency;
 import com.bms.common.CommonConstants.Frequency;
 import com.bms.common.CommonConstants.Sex;
 import com.bms.dao.BaseDAO;
+import com.bms.dao.CreatorDao;
+import com.bms.dao.IdeatorDao;
 import com.bms.service.vo.Address;
 import com.bms.service.vo.Creator;
 import com.bms.service.vo.Experience;
@@ -60,48 +62,55 @@ public class DisplayProfileServiceImpl implements DisplayProfileService {
 		/**
 		 * We are currently showing hard coded data for only the first creator.
 		 */
-		Creator creator = new Creator();
-		
-		creator.setUserName(getFieldValueForCreator(USERNAME));
-		creator.setPassword(getFieldValueForCreator(PASSWORD));
-		creator.setUserId(new Long(getFieldValueForCreator(USERID)));
-		creator.setAccountStatus(AccountStatus.valueOf(getFieldValueForCreator(ACCOUNTSTATUS).toUpperCase()));
-		creator.setCreationDate(new Date(getFieldValueForCreator(CREATIONDATE)));
-		creator.setModificationDate(new Date(getFieldValueForCreator(MODIFICATIONDATE)));
-		creator.setFirstName(getFieldValueForCreator(FIRSTNAME));
-		creator.setMiddleName(getFieldValueForCreator(MIDDLENAME));
-		creator.setLastName(getFieldValueForCreator(LASTNAME));
-		creator.setSex(Sex.MALE);
-		creator.setDateOfBirth(new Date(getFieldValueForCreator(DATEOFBIRTH)));
-		//TODO
-		Address address = new Address();
-		address.setStreetAddress("24 Abercane Lane");
-		address.setCity("Wallington");
-		address.setPostCode("Sm6 0PS");
-		creator.setAddress(address);
-		creator.setPhoneNumber(getFieldValueForCreator(PHONENUMBER));
-		creator.setCompanyName(getFieldValueForCreator(COMPANYNAME));
-		creator.setWebsite(getFieldValueForCreator(WEBSITE));
-		
-		ArrayList<String> skills = new ArrayList<String>();
-		skills.add(getFieldValueForCreator(SKILLS));
-		creator.setSkills(skills);
-		
-		Experience experience = new Experience();
-		experience.setMonths(5);
-		experience.setYears(8);
-		creator.setExperience(experience);
-		
-		Rate rate = new Rate();
-		rate.setAmount(350.0);
-		rate.setCurrency(Currency.GBP);
-		rate.setFrequency(Frequency.MONTHLY);
-		creator.setRate(rate );
-		
-		creator.setAvailabilityStatus(Boolean.valueOf(getFieldValueForCreator(AVAILABILITYSTATUS)));
-		creator.setAvailabilityDate(new Date(getFieldValueForCreator(AVAILABILITYDATE)));
+//		Creator creator = new Creator();
+//		
+//		creator.setUserName(getFieldValueForCreator(USERNAME));
+//		creator.setPassword(getFieldValueForCreator(PASSWORD));
+//		creator.setUserId(new Long(getFieldValueForCreator(USERID)));
+//		creator.setAccountStatus(AccountStatus.valueOf(getFieldValueForCreator(ACCOUNTSTATUS).toUpperCase()));
+//		creator.setCreationDate(new Date(getFieldValueForCreator(CREATIONDATE)));
+//		creator.setModificationDate(new Date(getFieldValueForCreator(MODIFICATIONDATE)));
+//		creator.setFirstName(getFieldValueForCreator(FIRSTNAME));
+//		creator.setMiddleName(getFieldValueForCreator(MIDDLENAME));
+//		creator.setLastName(getFieldValueForCreator(LASTNAME));
+//		creator.setSex(Sex.MALE);
+//		creator.setDateOfBirth(new Date(getFieldValueForCreator(DATEOFBIRTH)));
+//		//TODO
+//		Address address = new Address();
+//		address.setStreetAddress("24 Abercane Lane");
+//		address.setCity("Wallington");
+//		address.setPostCode("Sm6 0PS");
+//		creator.setAddress(address);
+//		creator.setPhoneNumber(getFieldValueForCreator(PHONENUMBER));
+//		creator.setCompanyName(getFieldValueForCreator(COMPANYNAME));
+//		creator.setWebsite(getFieldValueForCreator(WEBSITE));
+//		
+//		ArrayList<String> skills = new ArrayList<String>();
+//		skills.add(getFieldValueForCreator(SKILLS));
+//		creator.setSkills(skills);
+//		
+//		Experience experience = new Experience();
+//		experience.setMonths(5);
+//		experience.setYears(8);
+//		creator.setExperience(experience);
+//		
+//		Rate rate = new Rate();
+//		rate.setAmount(350.0);
+//		rate.setCurrency(Currency.GBP);
+//		rate.setFrequency(Frequency.MONTHLY);
+//		creator.setRate(rate );
+//		
+//		creator.setAvailabilityStatus(Boolean.valueOf(getFieldValueForCreator(AVAILABILITYSTATUS)));
+//		creator.setAvailabilityDate(new Date(getFieldValueForCreator(AVAILABILITYDATE)));
 
-		return creator;
+//		return creator;
+		CreatorDao creatorDao = new CreatorDao();
+//		Creator creator1 = creatorDao.findCreatorByUserId(56789L);
+		Creator creator1 = creatorDao.findCreatorByUserName("sachintendulkar");
+		
+     	System.out.println(creator1);
+		return creator1;
+		
 	}
 
 	@SuppressWarnings("deprecation")
@@ -110,34 +119,40 @@ public class DisplayProfileServiceImpl implements DisplayProfileService {
 		/**
 		 * We are currently showing hard coded data for only the first creator.
 		 */
-		Ideator ideator = new Ideator();
+//		Ideator ideator = new Ideator();
 		
-		ideator.setUserName(getFieldValueFromSheetForIdeator(USERNAME));
-		ideator.setPassword(getFieldValueFromSheetForIdeator(PASSWORD));
-		ideator.setUserId(new Long(getFieldValueFromSheetForIdeator(USERID)));
-		ideator.setAccountStatus(AccountStatus.valueOf(getFieldValueFromSheetForIdeator(ACCOUNTSTATUS).toUpperCase()));
-		ideator.setCreationDate(new Date(getFieldValueFromSheetForIdeator(CREATIONDATE)));
-		ideator.setModificationDate(new Date(getFieldValueFromSheetForIdeator(MODIFICATIONDATE)));
-		ideator.setFirstName(getFieldValueFromSheetForIdeator(FIRSTNAME));
-		ideator.setMiddleName(getFieldValueFromSheetForIdeator(MIDDLENAME));
-		ideator.setLastName(getFieldValueFromSheetForIdeator(LASTNAME));
-		ideator.setSex(Sex.MALE);
-		ideator.setDateOfBirth(new Date(getFieldValueFromSheetForIdeator(DATEOFBIRTH)));
-		//TODO
-		Address address = new Address();
-		address.setStreetAddress("24 Abercane Lane");
-		address.setCity("Wallington");
-		address.setPostCode("Sm6 0PS");
-		ideator.setAddress(address);
-		ideator.setPhoneNumber(getFieldValueFromSheetForIdeator(PHONENUMBER));
-		ideator.setCompanyName(getFieldValueFromSheetForIdeator(COMPANYNAME));
-		ideator.setWebsite(getFieldValueFromSheetForIdeator(WEBSITE));
+//		ideator.setUserName(getFieldValueFromSheetForIdeator(USERNAME));
+//		ideator.setPassword(getFieldValueFromSheetForIdeator(PASSWORD));
+//		ideator.setUserId(new Long(getFieldValueFromSheetForIdeator(USERID)));
+//		ideator.setAccountStatus(AccountStatus.valueOf(getFieldValueFromSheetForIdeator(ACCOUNTSTATUS).toUpperCase()));
+//		ideator.setCreationDate(new Date(getFieldValueFromSheetForIdeator(CREATIONDATE)));
+//		ideator.setModificationDate(new Date(getFieldValueFromSheetForIdeator(MODIFICATIONDATE)));
+//		ideator.setFirstName(getFieldValueFromSheetForIdeator(FIRSTNAME));
+//		ideator.setMiddleName(getFieldValueFromSheetForIdeator(MIDDLENAME));
+//		ideator.setLastName(getFieldValueFromSheetForIdeator(LASTNAME));
+//		ideator.setSex(Sex.MALE);
+//		ideator.setDateOfBirth(new Date(getFieldValueFromSheetForIdeator(DATEOFBIRTH)));
+//		//TODO
+//		Address address = new Address();
+//		address.setStreetAddress("24 Abercane Lane");
+//		address.setCity("Wallington");
+//		address.setPostCode("Sm6 0PS");
+//		ideator.setAddress(address);
+//		ideator.setPhoneNumber(getFieldValueFromSheetForIdeator(PHONENUMBER));
+//		ideator.setCompanyName(getFieldValueFromSheetForIdeator(COMPANYNAME));
+//		ideator.setWebsite(getFieldValueFromSheetForIdeator(WEBSITE));
+//		
+//		ArrayList<String> projects = new ArrayList<String>();
+//		projects.add(getFieldValueFromSheetForIdeator(PROJECTS));
+//		ideator.setProjects(projects );
+//
+//		return ideator;
+		IdeatorDao ideatorDao = new IdeatorDao();
+//		Creator creator1 = creatorDao.findCreatorByUserId(56789L);
+		Ideator ideator1 = ideatorDao.findIdeatorByUserName("sauravganguly");
 		
-		ArrayList<String> projects = new ArrayList<String>();
-		projects.add(getFieldValueFromSheetForIdeator(PROJECTS));
-		ideator.setProjects(projects );
-
-		return ideator;
+     	System.out.println(ideator1);
+		return ideator1;
 	}
 
 	

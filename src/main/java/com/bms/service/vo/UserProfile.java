@@ -9,8 +9,10 @@ package com.bms.service.vo;
 
 import java.util.Date;
 
-import com.bms.common.CommonConstants.AccountStatus;
-import com.bms.common.CommonConstants.Sex;
+import com.bms.common.enums.AccountStatus;
+import com.bms.common.enums.Sex;
+
+
 
 public abstract class UserProfile {
 

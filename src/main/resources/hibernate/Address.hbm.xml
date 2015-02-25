@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.bms.service.vo.Address" table="Address">
+        <id name="userId" type="java.lang.Long">
+            <column name="USERID"/>
+            <generator class="foreign">
+                <param name="property">userProfile</param>
+            </generator>
+        </id>
+        <one-to-one name="userProfile" class="com.bms.service.vo.UserProfile" constrained="true"></one-to-one>
+        <property name="streetAddress" column="STREET"></property>
+        <property name="postCode" column="POSTCODE"></property>
+        <property name="city" column="CITY"></property>
+        <property name="country" column="COUNTRY">
+    		<type name="org.hibernate.type.EnumType">
+        		<param name="enumClass">com.bms.common.enums.Country</param>
+        		<param name="type">12</param>
+        		<param name="useNamed">true</param>
+    		</type>
+		</property>
+        <property name="additionalInfo" column="ADDITIONAL_INFO"></property>
+    </class>
+</hibernate-mapping>

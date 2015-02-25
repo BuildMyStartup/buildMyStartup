@@ -7,16 +7,25 @@
  */
 package com.bms.service.vo;
 
-import com.bms.common.CommonConstants.Country;
+import com.bms.common.enums.Country;
+
+
 
 public class Address {
-	
+	private long userId;
 	private String streetAddress;
 	private String postCode;
 	private String city;
 	private Country country;
 	private String additionalInfo;
+	private UserProfile userProfile;
 	
+	public long getUserId() {
+		return userId;
+	}
+	public void setUserId(long userId) {
+		this.userId = userId;
+	}
 	public String getStreetAddress() {
 		return streetAddress;
 	}
@@ -47,4 +56,29 @@ public class Address {
 	public void setAdditionalInfo(String additionalInfo) {
 		this.additionalInfo = additionalInfo;
 	}
+	public UserProfile getUserProfile() {
+		return userProfile;
+	}
+	public void setUserProfile(UserProfile userProfile) {
+		this.userProfile = userProfile;
+	}
+	
+	/**
+	  * Intended only for debugging.
+	  *
+	  * <P>Here, the contents of every field are placed into the result, with
+	  * one field per line.
+	  */
+	  @Override public String toString() {
+	    StringBuffer result = new StringBuffer();
+	    result.append("\n++++++++++++++++++++++++++++");
+	    result.append("\nStreet Address: " + this.getStreetAddress());
+	    result.append("\nPost Code: " + this.getCity());
+	    result.append("\nCity: " + this.getCity());
+	    result.append("\nCountry: " + this.getCountry());
+	    result.append("\nAdditional Info: " + this.getAdditionalInfo());
+	    result.append("\n++++++++++++++++++++++++++++");
+	    return result.toString();
+	  }
+	
 }

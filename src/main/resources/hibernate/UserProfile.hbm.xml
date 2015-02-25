@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.bms.service.vo.UserProfile" table="USER_PROFILE">
+      	<id name="userId" column="USERID" type="java.lang.Long">
+         <generator class="assigned"/>
+        </id>
+        <property name="userName" column="USERNAME"></property>
+        <property name="password" column="PASSWORD"></property>
+        <property name="creationDate" column="CREATION_DATE" type="java.util.Date"></property>
+        <property name="modificationDate" column="MODIFICATION_DATE" type="java.util.Date"></property>  
+        <property name="accountStatus" column="ACCOUNT_STATUS">
+    		<type name="org.hibernate.type.EnumType">
+        		<param name="enumClass">com.bms.common.enums.AccountStatus</param>
+        		<param name="type">12</param>
+        		<param name="useNamed">true</param>
+    		</type>
+		</property>
+        <property name="firstName" column="FIRSTNAME"></property>
+        <property name="middleName" column="MIDDLENAME"></property>
+        <property name="lastName" column="LASTNAME"></property>
+        <property name="sex" column="SEX">
+    		<type name="org.hibernate.type.EnumType">
+        		<param name="enumClass">com.bms.common.enums.Sex</param>
+        		<param name="type">12</param>
+        		<param name="useNamed">true</param>
+    		</type>
+		</property>
+        <property name="dateOfBirth" column="DATE_OF_BIRTH" type="java.util.Date"></property>
+        <one-to-one name="address" class="com.bms.service.vo.Address" cascade="save-update"></one-to-one>
+        <property name="phoneNumber" column="PHONE"></property>     
+     
+      
+      
+      <union-subclass name="com.bms.service.vo.Ideator" extends="com.bms.service.vo.UserProfile" table="IDEATOR">
+          <property name="companyName" column="COMPANY_NAME" type="java.lang.String"></property>
+          <property name="website" column="WEBSITE" type="java.lang.String"></property>
+          <list name="projects" table="PROJECTS" lazy="false">
+			<key column="PID"></key>
+			<index column="type"></index>
+			<element column="PROJECT" type="java.lang.String"></element>
+		  </list>  
+      </union-subclass>
+
+       <union-subclass name="com.bms.service.vo.Creator" extends="com.bms.service.vo.UserProfile" table="CREATOR">
+          <property name="companyName" column="COMPANY_NAME" type="java.lang.String"></property>
+          <property name="website" column="WEBSITE" type="java.lang.String"></property>
+          <list name="skills" table="SKILLS" lazy="false">
+			<key column="SKID"></key>
+			<index column="type"></index>
+			<element column="SKILL" type="java.lang.String"></element>
+		  </list>
+		  <one-to-one name="experience" class="com.bms.service.vo.Experience" cascade="save-update"></one-to-one>
+		  <one-to-one name="rate" class="com.bms.service.vo.Rate" cascade="save-update"></one-to-one>
+		  <property name="availabilityStatus" column="AVAILABILITY" type="java.lang.Boolean"></property>
+		  <property name="availabilityDate" column="AVAILABILITY_DATE" type="java.util.Date"></property>
+      </union-subclass>
+      
+   </class>
+</hibernate-mapping>

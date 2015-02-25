@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+ "-//Hibernate/Hibernate Mapping DTD//EN"
+ "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
+
+<hibernate-mapping>
+   <class name="com.bms.service.vo.Rate" table="Rate">
+        <id name="userId" type="java.lang.Long">
+            <column name="USERID"/>
+            <generator class="foreign">
+                <param name="property">userProfile</param>
+            </generator>
+        </id>
+        <one-to-one name="userProfile" class="com.bms.service.vo.UserProfile" constrained="true"></one-to-one>
+        <property name="amount" column="AMOUNT" type="java.lang.Double"></property>
+        <property name="currency" column="CURRENCY">
+    		<type name="org.hibernate.type.EnumType">
+        		<param name="enumClass">com.bms.common.enums.Currency</param>
+        		<param name="type">12</param>
+        		<param name="useNamed">true</param>
+    		</type>
+		</property>
+		<property name="frequency" column="FREQUENCY">
+    		<type name="org.hibernate.type.EnumType">
+        		<param name="enumClass">com.bms.common.enums.Frequency</param>
+        		<param name="type">12</param>
+        		<param name="useNamed">true</param>
+    		</type>
+		</property>
+
+    </class>
+</hibernate-mapping>
