@@ -303,6 +303,7 @@
                 <configuration>
                     <webApp>
                         <contextPath>/${project.artifactId}</contextPath>
+                        <!-- baseResource>/src/main/webapp</baseResource-->
                     </webApp>
                 </configuration>
             </plugin>
