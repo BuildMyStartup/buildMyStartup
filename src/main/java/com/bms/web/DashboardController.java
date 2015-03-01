@@ -17,6 +17,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class DashboardController {
 
+	@RequestMapping(value = "/welcome", method = RequestMethod.GET)
+	public String welcome(Model model){
+		Date today = new Date();
+		model.addAttribute("today", today);
+		return "welcome";
+	}
+	
 	@RequestMapping(value = "/dashboard", method = RequestMethod.GET)
 	public String dashboard(Model model){
 		Date today = new Date();
