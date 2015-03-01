@@ -1,9 +1,0 @@
-Instructions for BuildMyStartup - Project Setup:
-
-1. Install Java 1.7 or higher
-2. Install Maven 3 or higher
-3. Pull the project from github from the following location: https://github.com/BuildMyStartup/buildMyStartup.git
-	- Set-up a Github account if you dont already have one and send request for access to saif.rizvi@gmail.com 
-4. Once the project is imported go to root i.e. /buildmystartup and build the project using maven following command - mvn clean install
-5. If project is build successfully run the project using maven command - mvn jetty:run
-6. Go to your browser and run the application at - http://localhost:8080/buildmystartup/welcome
