@@ -30,12 +30,25 @@ h6 {
 }
 
 .intro-header {
+	display: block;
     padding-top: 50px; /* If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-bottom: 50px;
     text-align: center;
     color: #f8f8f8;
-    background: url(/img/intro-bg.jpg) no-repeat center center;
     background-size: cover;
+}
+
+#seed{
+	align-content: stretch;
+	position: absolute;
+    top: 0;
+    left: 0;
+    border: 0;
+    z-index: 1; /* <-- this plays a key roll for it to work */
+    width: 100% !important /* <-- this plays a key roll for it to work */
+    height: 100%;
+	margin:0;
+	padding:0;
 }
 
 .intro-message {
